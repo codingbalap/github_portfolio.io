@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Alif Stiawan</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Alif<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#projects">Proyek</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Halo, saya <span>Alif Stiawan</span></h1>
+      <p>Seorang Web Developer yang fokus pada desain elegan dan performa tinggi.</p>
+      <button class="btn" onclick="scrollToSection('projects')">Lihat Proyek</button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya adalah pengembang web dengan passion terhadap teknologi modern, tampilan minimalis, dan pengalaman pengguna yang halus.
+      Terampil dalam HTML, CSS, JavaScript, dan framework front-end populer.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2>Proyek Terbaru</h2>
+    <div class="project-list">
+      <div class="project-card">
+        <img src="https://source.unsplash.com/500x300/?website" alt="Project 1" />
+        <h3>Website Portfolio</h3>
+        <p>Website portfolio pribadi dengan tampilan responsif dan desain profesional.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/500x300/?dashboard" alt="Project 2" />
+        <h3>Admin Dashboard</h3>
+        <p>Dashboard interaktif dengan chart dinamis menggunakan JavaScript dan API.</p>
+      </div>
+      <div class="project-card">
+        <img src="https://source.unsplash.com/500x300/?mobile-app" alt="Project 3" />
+        <h3>Aplikasi Mobile</h3>
+        <p>Prototype aplikasi mobile dengan antarmuka bersih dan pengalaman cepat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Hubungi Saya</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Nama" required />
+      <input type="email" placeholder="Email" required />
+      <textarea placeholder="Pesan Anda..." required></textarea>
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Alif Stiawan. Dibuat dengan ❤️ menggunakan HTML, CSS, dan JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
