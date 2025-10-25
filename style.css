@@ -1,268 +1,222 @@
-/* ===== Global ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
 :root {
-  --bg-color: #0a0f1c;
-  --text-color: #e2e8f0;
-  --accent: #38bdf8;
-  --card-bg: rgba(30, 41, 59, 0.8);
-  --glass: rgba(255, 255, 255, 0.1);
-}
-
-body.light {
-  --bg-color: #f8fafc;
-  --text-color: #0f172a;
-  --accent: #0284c7;
-  --card-bg: rgba(255, 255, 255, 0.8);
-  --glass: rgba(0, 0, 0, 0.05);
+  --bg-dark: #0d0d0d;
+  --text-dark: #ffffff;
+  --bg-light: #f9f9f9;
+  --text-light: #111111;
+  --accent-color: #00aaff;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.8s ease, color 0.8s ease;
-  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-dark);
   overflow-x: hidden;
+  opacity: 0;
+  transition: background-color 0.6s ease, color 0.6s ease;
 }
 
-/* ===== Navbar ===== */
+/* Light Mode */
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Fade Transition */
+body.fade-in {
+  animation: fadeIn 0.5s forwards;
+}
+body.fade-out {
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(10px); }
+}
+
+/* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--glass);
-  backdrop-filter: blur(12px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 80px;
+  padding: 20px 60px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
   z-index: 1000;
-  transition: background 0.6s ease;
+  transition: background 0.3s ease;
 }
 
 .logo {
   font-size: 1.6rem;
   font-weight: 700;
+  letter-spacing: 1px;
 }
-.logo span {
-  color: var(--accent);
-}
+.logo span { color: var(--accent-color); }
 
-.navbar ul {
-  list-style: none;
+nav ul {
   display: flex;
-  gap: 30px;
+  list-style: none;
+  gap: 25px;
 }
-.navbar a {
+nav a {
   text-decoration: none;
-  color: var(--text-color);
+  color: inherit;
+  position: relative;
   font-weight: 500;
   transition: color 0.3s ease;
 }
-.navbar a:hover {
-  color: var(--accent);
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s;
 }
+nav a:hover::after, nav a.active::after {
+  width: 100%;
+}
+nav a.active { color: var(--accent-color); }
 
-/* ===== Theme Toggle ===== */
 .theme-toggle {
   cursor: pointer;
   font-size: 1.4rem;
-  transition: transform 0.4s ease;
+  transition: transform 0.3s;
 }
 .theme-toggle:hover {
-  transform: rotate(25deg) scale(1.2);
+  transform: rotate(20deg);
 }
 
-/* ===== Hero Section ===== */
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: radial-gradient(circle at top, #1e293b, var(--bg-color));
-  padding: 0 20px;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(0,170,255,0.1), transparent);
 }
-.hero h1 {
+.hero-content h1 {
   font-size: 2.8rem;
-  margin-bottom: 10px;
 }
-.hero h1 span {
-  color: var(--accent);
+.hero-content h1 span {
+  color: var(--accent-color);
 }
-.hero h2 {
-  font-size: 1.4rem;
-  color: #94a3b8;
-  min-height: 30px;
+.hero-content p {
+  max-width: 500px;
+  margin: 15px auto 25px;
 }
-.hero p {
-  margin: 15px 0 25px;
-  color: #cbd5e1;
-}
-.btn {
-  background: var(--accent);
-  color: var(--bg-color);
-  padding: 10px 25px;
-  border: none;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 0 15px var(--accent);
-  transition: all 0.3s ease;
-}
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--accent);
-}
-
-/* ===== Sections ===== */
-section {
-  padding: 100px 80px;
-  max-width: 1200px;
-  margin: auto;
-}
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: var(--accent);
-}
-
-/* ===== About ===== */
-.about p {
-  line-height: 1.8;
-  margin-bottom: 25px;
-}
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-.skill-card {
-  background: var(--card-bg);
-  backdrop-filter: blur(10px);
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: var(--accent);
+.hero-content .btn {
+  display: inline-block;
+  background: var(--accent-color);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 40px;
+  text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
-.skill-card:hover {
-  background: var(--accent);
-  color: var(--bg-color);
-  transform: scale(1.05);
+.hero-content .btn:hover {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
 }
 
-/* ===== Projects ===== */
+/* PROJECTS */
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
-  margin-top: 40px;
+  padding: 40px;
 }
 .project-card {
-  position: relative;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 15px;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
 }
 .project-card img {
   width: 100%;
-  height: 220px;
+  height: 180px;
   object-fit: cover;
-  filter: brightness(80%);
-  transition: transform 0.5s ease, filter 0.4s ease;
 }
-.project-card:hover img {
-  transform: scale(1.1);
-  filter: brightness(100%);
-}
-.project-card .overlay {
-  position: absolute;
-  bottom: -100%;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(180deg, transparent, var(--card-bg));
-  color: var(--text-color);
-  padding: 20px;
-  text-align: center;
-  transition: bottom 0.4s ease;
-}
-.project-card:hover .overlay {
-  bottom: 0;
+.project-info {
+  padding: 15px;
 }
 
-/* ===== Contact ===== */
-.contact form {
+/* CONTACT */
+form {
+  max-width: 500px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  max-width: 600px;
 }
-.contact input,
-.contact textarea {
-  background: var(--card-bg);
+form input, form textarea {
+  padding: 12px;
+  border-radius: 8px;
   border: none;
-  padding: 12px 15px;
-  border-radius: 10px;
-  color: var(--text-color);
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  background: rgba(255,255,255,0.08);
+  color: inherit;
+  resize: none;
+  transition: background 0.3s;
 }
-.contact input:focus,
-.contact textarea:focus {
-  outline: 2px solid var(--accent);
-  transform: scale(1.02);
+form input:focus, form textarea:focus {
+  outline: 2px solid var(--accent-color);
+}
+form button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+form button:hover {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
 }
 
-/* ===== Footer ===== */
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 25px;
-  background: var(--card-bg);
-  color: #94a3b8;
-  transition: background 0.6s ease;
+  padding: 30px;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* ===== Animations ===== */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1.2s ease forwards;
-}
-.slide-up {
-  opacity: 0;
-  transform: translateY(50px);
-  animation: slideUp 1.5s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== Responsive ===== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 30px;
+    flex-direction: column;
+    padding: 15px;
   }
-  section {
-    padding: 80px 30px;
-  }
-  .hero h1 {
-    font-size: 2rem;
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
 }
+
 
 
