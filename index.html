@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio | Alif Stiawan</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navbar -->
@@ -22,49 +23,65 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <h1>Halo, saya <span>Alif Stiawan</span></h1>
-      <p>Seorang Web Developer yang fokus pada desain elegan dan performa tinggi.</p>
+      <h2 id="typing"></h2>
+      <p>Saya membangun website modern yang cepat, elegan, dan fungsional.</p>
       <button class="btn" onclick="scrollToSection('projects')">Lihat Proyek</button>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
+  <!-- About -->
+  <section id="about" class="about slide-up">
     <h2>Tentang Saya</h2>
     <p>
-      Saya adalah pengembang web dengan passion terhadap teknologi modern, tampilan minimalis, dan pengalaman pengguna yang halus.
-      Terampil dalam HTML, CSS, JavaScript, dan framework front-end populer.
+      Saya seorang <strong>Web Developer</strong> dengan minat pada desain elegan, animasi halus, dan pengalaman pengguna yang intuitif.
+      Berpengalaman dalam membangun website interaktif menggunakan <strong>HTML, CSS, JavaScript</strong>, dan framework modern.
     </p>
+    <div class="skills">
+      <div class="skill-card">HTML5</div>
+      <div class="skill-card">CSS3</div>
+      <div class="skill-card">JavaScript</div>
+      <div class="skill-card">React</div>
+      <div class="skill-card">Node.js</div>
+    </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
+  <!-- Projects -->
+  <section id="projects" class="projects fade-in">
     <h2>Proyek Terbaru</h2>
     <div class="project-list">
       <div class="project-card">
-        <img src="https://source.unsplash.com/500x300/?website" alt="Project 1" />
-        <h3>Website Portfolio</h3>
-        <p>Website portfolio pribadi dengan tampilan responsif dan desain profesional.</p>
+        <img src="https://source.unsplash.com/600x400/?portfolio,website" alt="Portfolio" />
+        <div class="project-info">
+          <h3>Portfolio Website</h3>
+          <p>Desain profesional dengan animasi dan tema gelap modern.</p>
+        </div>
       </div>
+
       <div class="project-card">
-        <img src="https://source.unsplash.com/500x300/?dashboard" alt="Project 2" />
-        <h3>Admin Dashboard</h3>
-        <p>Dashboard interaktif dengan chart dinamis menggunakan JavaScript dan API.</p>
+        <img src="https://source.unsplash.com/600x400/?dashboard,web" alt="Dashboard" />
+        <div class="project-info">
+          <h3>Admin Dashboard</h3>
+          <p>Dashboard interaktif dengan data chart dan API dinamis.</p>
+        </div>
       </div>
+
       <div class="project-card">
-        <img src="https://source.unsplash.com/500x300/?mobile-app" alt="Project 3" />
-        <h3>Aplikasi Mobile</h3>
-        <p>Prototype aplikasi mobile dengan antarmuka bersih dan pengalaman cepat.</p>
+        <img src="https://source.unsplash.com/600x400/?mobile,app" alt="Mobile App" />
+        <div class="project-info">
+          <h3>Aplikasi Mobile</h3>
+          <p>Prototype aplikasi mobile dengan antarmuka responsif.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <!-- Contact -->
+  <section id="contact" class="contact slide-up">
     <h2>Hubungi Saya</h2>
     <form id="contactForm">
-      <input type="text" placeholder="Nama" required />
+      <input type="text" placeholder="Nama Lengkap" required />
       <input type="email" placeholder="Email" required />
       <textarea placeholder="Pesan Anda..." required></textarea>
       <button type="submit" class="btn">Kirim Pesan</button>
@@ -73,10 +90,11 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 Alif Stiawan. Dibuat dengan ❤️ menggunakan HTML, CSS, dan JS.</p>
+    <p>© 2025 Alif Stiawan | Dibuat dengan ❤️ dan JavaScript</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
